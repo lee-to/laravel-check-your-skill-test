@@ -33,7 +33,7 @@ class EloquentController extends Controller
 
     public function task4($id)
     {
-        // TODO Eloquent Задание 4: Найти пользователя по id и передать во view либо отдать 404 страницу
+        // TODO Eloquent Задание 4: Найти Item по id и передать во view либо отдать 404 страницу
         // Одна строка кода
         // вместо []
         $product = [];

@@ -13,7 +13,7 @@
 3. [Blade template](#task-blade)
 4. [Eloquent model](#task-model)
 5. [Валидация](#task-validation)
-6. [Аутентификаия](#task-auth)
+6. [Аутентификация](#task-auth)
 
 Для начала необходимо развернуть проект на котором будут выполняться тесты.
 
