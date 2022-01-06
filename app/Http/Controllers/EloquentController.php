@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class EloquentController extends Controller

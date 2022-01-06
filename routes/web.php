@@ -10,7 +10,7 @@ Route::get('/hello', function () {
 
 //TODO Route Задание 2: По GET урлу / обратиться к IndexController, метод index
 // Одна строка кода
-Route::get('/', [\App\Http\Controllers\IndexController::class, 'index',]);
+Route::get('/', [\App\Http\Controllers\IndexController::class, 'index']);
 
 //TODO Route Задание 3: По GET урлу /page/contact отобразить view - /resources/views/pages/contact.blade
 // с наименованием роута - contact
@@ -22,12 +22,12 @@ Route::get('/page/contact', function () {
 //TODO Route Задание 4: По GET урлу /users/[id] обратиться к UserController, метод show
 // без Route Model Binding. Только параметр id
 // Одна строка кода
-Route::get('/users/{id}', [\App\Http\Controllers\UserController::class, 'show',]);
+Route::get('/users/{id}', [\App\Http\Controllers\UserController::class, 'show']);
 
 //TODO Route Задание 5: По GET урлу /users/bind/[user] обратиться к UserController, метод showBind
 // но в данном случае используем Route Model Binding. Параметр user
 // Одна строка кода
-Route::get('/users/bind/{user}', [\App\Http\Controllers\UserController::class, 'showBind',]);
+Route::get('/users/bind/{user}', [\App\Http\Controllers\UserController::class, 'showBind']);
 
 //TODO Route Задание 6: Выполнить редирект с урла /bad на урл /good
 // Одна строка кода
@@ -41,17 +41,17 @@ Route::resource('/users_crud', \App\Http\Controllers\UserCrudController::class);
 Route::group(['prefix' => 'dashboard'], function() {
     // Задачи внутри группы роутов dashboard
     //TODO Route Задание 9: Добавить роут GET /admin -> Admin/IndexController -> index
-    Route::get('/admin', [\App\Http\Controllers\Admin\IndexController::class, 'index',]);
+    Route::get('/admin', [\App\Http\Controllers\Admin\IndexController::class, 'index']);
 
     //TODO Route Задание 10: Добавить роут POST /admin/post -> Admin/IndexController -> post
-    Route::post('/admin/post', [\App\Http\Controllers\Admin\IndexController::class, 'post',]);
+    Route::post('/admin/post', [\App\Http\Controllers\Admin\IndexController::class, 'post']);
 });
 
 //TODO Route Задание 11: Организовать группу роутов (Route::group()) объединенных префиксом - security и мидлваром auth
 Route::group(['prefix' => 'security', 'middleware' => 'auth'], function() {
     // Задачи внутри группы роутов security
     //TODO Задание 12: Добавить роут GET /admin/auth -> Admin/IndexController -> auth
-    Route::get('/admin/auth', [\App\Http\Controllers\Admin\IndexController::class, 'auth',]);
+    Route::get('/admin/auth', [\App\Http\Controllers\Admin\IndexController::class, 'auth']);
 });
 
 require __DIR__ . '/default.php';
