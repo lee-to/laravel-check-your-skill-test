@@ -29,6 +29,8 @@
             <!-- и изменить его alias на hello -->
             <!-- В итоге alias - hello а класс компонента App\View\Components\HelloWorld -->
             <!-- и вывести его здесь -->
+            @hello
+            @endhello
         </div>
     </body>
 </html>
