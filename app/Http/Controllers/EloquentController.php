@@ -58,7 +58,6 @@ class EloquentController extends Controller
         // TODO Eloquent Задание 6: В запросе будет все необходимое для обновления записи
         // Выполнить простое обновление записи на основе $request
         $product->update($request->all());
-        $product->save();
 
         return redirect('/');
     }
