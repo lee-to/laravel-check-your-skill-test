@@ -13,7 +13,7 @@ class BladeTest extends TestCase
 {
     use RefreshDatabase;
 
-    /*public function test_task_1()
+    public function test_task_1()
     {
         $response = $this->get('/');
 
@@ -61,7 +61,7 @@ class BladeTest extends TestCase
         $response->assertOk();
 
         $response->assertSee(now()->format('Y-m-d'));
-    }*/
+    }
 
     public function test_task_6_7()
     {
