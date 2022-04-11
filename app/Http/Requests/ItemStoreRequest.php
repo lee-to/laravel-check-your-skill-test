@@ -29,6 +29,7 @@ class ItemStoreRequest extends FormRequest
             // Строковое
             // Минимам 5 символов
             // Максимум 15 символов
+            'title' => 'required|string|min:5|max:15',
         ];
     }
 }
