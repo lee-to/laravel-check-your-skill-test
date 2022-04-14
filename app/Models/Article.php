@@ -4,18 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Category;
 
-class article extends Model
+class Article extends Model
 {
     use HasFactory;
-    /**
-     * The roles that belong to the article
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
+
+    protected $fillable = ['name', 'active', 'main', 'description'];
+
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'article_category', 'article_id', 'category_id');
+        return $this->belongsToMany(Category::class);
     }
 }
