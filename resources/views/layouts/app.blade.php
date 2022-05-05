@@ -8,7 +8,7 @@
 </head>
 <body class="antialiased">
     <!-- TODO Blade Задание 3: Подключите view с меню -->
-    <!-- shared/menu.blade.php -->
+    @include('shared.menu')
 
     @yield('content')
 </body>
