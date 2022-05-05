@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -12,4 +13,5 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     // Префикс урла должен быть /api/v1
     // Полный урл /api/v1/users (не забывайте что это api routes)
     // Одна строка кода
+    Route::apiResource('/v1/users', UserController::class);
 });
