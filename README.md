@@ -3,7 +3,7 @@
 Репозиторий служит целью проверки знаний основ фреймворка laravel, в рамках тем указанных в roadmap здесь:
 [CutCode Junior Roadmap](https://cutcode.ru/roadmap)
 
-[Видео инструкции](https://youtube.com)
+[Видео инструкции](https://www.youtube.com/watch?v=bYDfOLhqKaE)
 
 Цель создания такого тестирования было охватить базовые разделы laravel и научиться на практике покрывать тестами проект на laravel.
 
