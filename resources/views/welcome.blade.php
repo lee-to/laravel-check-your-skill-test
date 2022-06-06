@@ -20,15 +20,18 @@
             }
         </style>
     </head>
+    <h1>Welcome</h1>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
             <!-- TODO Blade Задание 5: Сделать blade component с названием HelloWorld  -->
+
             <!-- с содержимым во view - Текущая дата в формате Y-m-d  -->
             <!-- Обязательно условие добавить регистрацию компонента в AppServiceProvider -->
             <!-- и изменить его alias на hello -->
             <!-- В итоге alias - hello а класс компонента App\View\Components\HelloWorld -->
             <!-- и вывести его здесь -->
+            <x-hello></x-hello>
         </div>
     </body>
 </html>
