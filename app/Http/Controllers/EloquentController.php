@@ -12,7 +12,11 @@ class EloquentController extends Controller
         // TODO Eloquent Задание 2: С помощью модели Item реализовать запрос в переменной products
         // select * from products where active = true order by created_at desc limit 3
         // вместо []
-        $products = [];
+        $products = Item::query()
+            ->where('active', true)
+            ->orderBy('created_at', 'DESC')
+            ->limit(3)
+            ->get();
 
         return view('eloquent.task2', [
             'products' => $products
@@ -24,7 +28,7 @@ class EloquentController extends Controller
         // TODO Eloquent Задание 3: Добавить в модель Item scope для фильтрации активных продуктов (scopeActive())
         // Одна строка кода
         // вместо []
-        $products = [];
+        $products = Item::query()->active()->get();
 
         return view('eloquent.task2', [
             'products' => $products
@@ -36,7 +40,7 @@ class EloquentController extends Controller
         // TODO Eloquent Задание 4: Найти Item по id и передать во view либо отдать 404 страницу
         // Одна строка кода
         // вместо []
-        $product = [];
+        $product = Item::findOrFail($id);
 
         return view('eloquent.task4', [
             'product' => $product
@@ -47,6 +51,9 @@ class EloquentController extends Controller
     {
         // TODO Eloquent Задание 5: В запросе будет все необходимое для создания записи
         // Выполнить простое добавление новой записи в Item на основе $request
+        $product = new Item();
+        $product->fill($request->all());
+        $product->save();
 
         return redirect('/');
     }
@@ -57,6 +64,9 @@ class EloquentController extends Controller
         // TODO Eloquent Задание 6: В запросе будет все необходимое для обновления записи
         // Выполнить простое обновление записи на основе $request
 
+        $product->fill($request->all());
+        $product->save();
+
         return redirect('/');
     }
 
@@ -64,6 +74,7 @@ class EloquentController extends Controller
     {
         // TODO Eloquent Задание 7: В запросе будет параметр products который будет содержать массив с id
         // [1,2,3,4 ...] выполнить массовое удаление записей модели Item с учетом id в $request
+        Item::destroy($request->products);
 
         return redirect('/');
     }
