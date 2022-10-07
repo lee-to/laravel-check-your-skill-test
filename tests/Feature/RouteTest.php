@@ -108,7 +108,6 @@ class RouteTest extends TestCase
         $response->assertViewIs('welcome');
         $response->assertStatus(200);
 
-
         $response = $this->get('/security/admin/auth');
         $response->assertRedirect('login');
 
