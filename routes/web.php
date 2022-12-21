@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 //TODO Route Задание 2: По GET урлу / обратиться к IndexController, метод index
 // Одна строка кода
     Route::get('/',[\App\Http\Controllers\IndexController::class,'index']);
+
 //TODO Route Задание 3: По GET урлу /page/contact отобразить view - /resources/views/pages/contact.blade
 // с наименованием роута - contact
 // Одна строка кода
