@@ -14,6 +14,7 @@ class IndexController extends Controller
         return view('welcome', [
             'title' => 'Welcome',
             // TODO Blade Задание 1: Передайте users во view (название ключа users)
+            'users' => $users,
         ]);
     }
 
