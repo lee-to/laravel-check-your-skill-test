@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 //TODO Route Задание 1: По GET урлу /hello отобразить view - /resources/views/hello.blade (без контроллера)
 // Одна строка кода
-Route::get('hello', function () {
+Route::get('hello', static function () {
     return view('hello');
 });
 
@@ -18,7 +18,7 @@ Route::get('/', [IndexController::class, 'index']);
 //TODO Route Задание 3: По GET урлу /page/contact отобразить view - /resources/views/pages/contact.blade
 // с наименованием роута - contact
 // Одна строка кода
-Route::get('page/contact', function () {
+Route::get('page/contact', static function () {
     return view('pages.contact');
 })->name('contact');
 
