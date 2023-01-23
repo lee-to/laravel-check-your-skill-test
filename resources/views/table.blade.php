@@ -1,5 +1,6 @@
 <!-- TODO Blade Задание 2: Изменить реализацию этой view, расширить ее с использованием layout  -->
 <!-- layouts/app.blade.php  -->
+@include('layouts/app');
 
 
 <!-- TODO Blade Задание 6: В эту view с контроллера передается collection c users в переменной data -->

@@ -12,7 +12,7 @@ class EloquentController extends Controller
         // TODO Eloquent Задание 2: С помощью модели Item реализовать запрос в переменной products
         // select * from products where active = true order by created_at desc limit 3
         // вместо []
-        $products = [];
+        $products = Item::query()->where('active', true)->orderByDesc('created_at')->take(3);
 
         return view('eloquent.task2', [
             'products' => $products
@@ -24,7 +24,7 @@ class EloquentController extends Controller
         // TODO Eloquent Задание 3: Добавить в модель Item scope для фильтрации активных продуктов (scopeActive())
         // Одна строка кода
         // вместо []
-        $products = [];
+        $products = Item::query()->active();
 
         return view('eloquent.task2', [
             'products' => $products
