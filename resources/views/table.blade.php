@@ -8,6 +8,18 @@
 <!-- Используйте view shared/user.blade.php для item (переменная user во item view) -->
 <!-- Используйте view shared/empty.blade.php для состояния когда нет элементов в колекции -->
 
+@if( count($data) === 0)
+    @include('shared.empty');
+@else
+    @include('shared.user');
+@endif
+
+{{--@foreach($data['users'] as $user)--}}
+
+{{--@endforeach--}}
+
+
+
 
 <!-- TODO Blade Задание 7: Здесь сделайте классический foreach loop -->
 <!-- Выведите div с $user->name -->
