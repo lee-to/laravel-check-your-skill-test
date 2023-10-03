@@ -42,6 +42,9 @@ class ItemPolicy
     public function create(User $user)
     {
         // TODO Auth Задание: Разрешить добавление продуктов только пользователю с id = 10
+        if ($user->id !== 10) {
+            return false;
+        }
 
         return true;
     }
