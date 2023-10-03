@@ -17,10 +17,11 @@ class CreatePostsTable extends Migration
         //
         Schema::create('categories',function(Blueprint $table){
             $table->id();
-            $table->string('title')->nullable();
+            $table->string('title');
             $table->timestamps();
         });
         Schema::create('posts', function (Blueprint $table) {
+            $table->id();
             //TODO Migrations Задание 2: Для title указать что значение по умолчанию NULL
             $table->string('title')->nullable();
             //TODO Migrations Задание 3: Для active указать что значение по умолчанию TRUE
@@ -33,7 +34,7 @@ class CreatePostsTable extends Migration
 
         Schema::table('posts', function (Blueprint $table) {
             //TODO Migrations Задание 6: Добавить поле description типа text (DEFAULT NULL) ПОСЛЕ поля title
-            $table->text('description')->after('title')->default(null);
+            $table->text('description')->after('title')->nullable();
             //TODO Migrations Задание 7: Сделать провеку на наличие поля active и в случаи успеха добавить поле main (boolean default false)
             if (Schema::hasColumn('posts','active'))
             {
