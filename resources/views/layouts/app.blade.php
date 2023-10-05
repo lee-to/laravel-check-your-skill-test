@@ -7,9 +7,10 @@
     <title>Layout</title>
 </head>
 <body class="antialiased">
-    <!-- TODO Blade Задание 3: Подключите view с меню -->
-    <!-- shared/menu.blade.php -->
+<!-- TODO Blade Задание 3: Подключите view с меню -->
+@include('shared.menu')
+<!-- shared/menu.blade.php -->
 
-    @yield('content')
+@yield('content')
 </body>
 </html>
