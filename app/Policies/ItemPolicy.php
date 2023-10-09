@@ -43,7 +43,7 @@ class ItemPolicy
     {
         // TODO Auth Задание: Разрешить добавление продуктов только пользователю с id = 10
 
-        return true;
+        return $user->id === 10;
     }
 
     /**
