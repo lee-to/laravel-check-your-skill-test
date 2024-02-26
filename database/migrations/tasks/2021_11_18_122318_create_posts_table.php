@@ -14,10 +14,19 @@ class CreatePostsTable extends Migration
     public function up()
     {
         //TODO Migrations Задание 1: Создать таблицу categories с 2 полями id и title (не забыть про timestamps)
-        //
+
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->timestamps();
+        });
 
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable()->default(null);
+            $table->boolean('active')->default(true);
+            $table->softDeletes();
+            $table->timestamps();
 
             //TODO Migrations Задание 2: Для title указать что значение по умолчанию NULL
 
@@ -29,11 +38,25 @@ class CreatePostsTable extends Migration
         });
 
         Schema::table('posts', function (Blueprint $table) {
+            $table->text('description')->nullable()->default(null)->after('title');
+            if(Schema::hasColumn('posts', 'active')) {
+                $table->boolean('main')->default(false);
+            }
+            $table->renameColumn('title', 'name');
+
             //TODO Migrations Задание 6: Добавить поле description типа text (DEFAULT NULL) ПОСЛЕ поля title
 
             //TODO Migrations Задание 7: Сделать провеку на наличие поля active и в случаи успеха добавить поле main (boolean default false)
 
             //TODO Migrations Задание 8: Переименовать поле title в name
+        });
+
+        Schema::rename('posts', 'articles');
+
+        Schema::create('article_category', function (Blueprint $table) {
+            $table->foreignId('article_id')->constrained('articles');
+            $table->foreignId('category_id')->constrained('categories');
+            $table->primary(['article_id', 'category_id']);
         });
 
         //TODO Migrations Задание 9: Переименовать таблицу posts в articles
@@ -48,6 +71,10 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('categories');
+        Schema::dropIfExists('articles');
+        Schema::dropIfExists('article_category');
+
         // TODO Migrations Задание 11: Удалить таблицы categories, articles, article_category если такие существуют
     }
 }

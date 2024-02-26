@@ -29,6 +29,11 @@
             <!-- и изменить его alias на hello -->
             <!-- В итоге alias - hello а класс компонента App\View\Components\HelloWorld -->
             <!-- и вывести его здесь -->
+
+            <x-hello-world />
+
+
+
         </div>
     </body>
 </html>
