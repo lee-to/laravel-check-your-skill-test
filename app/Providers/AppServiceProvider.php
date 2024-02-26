@@ -15,8 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-    }
+        Blade::component(HelloWorld::class, 'hello');}
 
     /**
      * Bootstrap any application services.
@@ -25,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        //
     }
 }

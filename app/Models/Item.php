@@ -9,7 +9,14 @@ class Item extends Model
 {
     use HasFactory;
 
+
     protected $fillable = ['title', 'active'];
 
     // TODO Eloquent Задание 1: указать что таблица - products
+    public $table = 'products';
+
+
+    public function scopeActive($query){
+        return $query->where('active', true);
+    }
 }
