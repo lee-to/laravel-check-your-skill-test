@@ -31,7 +31,7 @@ class CreatePostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
             //TODO Migrations Задание 6: Добавить поле description типа text (DEFAULT NULL) ПОСЛЕ поля title
 
-            //TODO Migrations Задание 7: Сделать провеку на наличие поля active и в случаи успеха добавить поле main (boolean default false)
+            //TODO Migrations Задание 7: Сделать проверку на наличие поля active и в случаи успеха добавить поле main (boolean default false)
 
             //TODO Migrations Задание 8: Переименовать поле title в name
         });
