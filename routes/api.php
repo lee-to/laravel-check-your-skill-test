@@ -8,8 +8,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
-    // TODO Route Задача 13: Добавить apiResource контроллер - Api/V1/UserController.
-    // Префикс урла должен быть /api/v1
-    // Полный урл /api/v1/users (не забывайте что это api routes)
-    // Одна строка кода
+    Route::resource('v1/users', \App\Http\Controllers\Api\V1\UserController::class);
 });
