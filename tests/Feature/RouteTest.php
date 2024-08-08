@@ -145,7 +145,7 @@ class RouteTest extends TestCase
     private function getUserRequestData()
     {
         return [
-            'name' => 'Name '.rand(1, 1000),
+            'name' => 'Name ' . random_int(1, 1000),
             'email' => uniqid() . '@example.com',
             'password' => '123'
         ];

@@ -4,8 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Item;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class ModelTest extends TestCase
@@ -15,6 +13,7 @@ class ModelTest extends TestCase
     public function test_task_1()
     {
         $item = ['title' => 'Test'];
+
         Item::create($item);
 
         $this->assertDatabaseHas('products', $item);
@@ -30,8 +29,8 @@ class ModelTest extends TestCase
 
         $response = $this->get('/eloquent/task2');
 
-        $response->assertDontSee($item3->title);
         $response->assertDontSee($item1->title);
+        $response->assertDontSee($item3->title);
 
         $response->assertSee('1.' . $item5->title);
         $response->assertSee('2.' . $item4->title);
@@ -40,10 +39,13 @@ class ModelTest extends TestCase
 
     public function test_task_3()
     {
-        $item = Item::factory()->create(['active' => false]);
+        $item1 = Item::factory()->create(['active' => true]);
+        $item2 = Item::factory()->create(['active' => false]);
 
         $response = $this->get('/eloquent/task3');
-        $response->assertDontSee($item->title);
+
+        $response->assertSee($item1->title);
+        $response->assertDontSee($item2->title);
     }
 
     public function test_task_4()
@@ -55,16 +57,17 @@ class ModelTest extends TestCase
         $response = $this->get('/eloquent/task4/' . $item->id);
         $response->assertStatus(200);
         $response->assertViewHas('product', $item);
-
     }
 
-    public function test_task_5() {
+    public function test_task_5()
+    {
         $response = $this->post('/eloquent/task5', ['title' => 'Test']);
         $response->assertRedirect();
         $this->assertDatabaseHas('products', ['title' => 'Test']);
     }
 
-    public function test_task_6() {
+    public function test_task_6()
+    {
         $item = new Item();
         $item->title = 'Old title';
         $item->save();
@@ -78,7 +81,8 @@ class ModelTest extends TestCase
         $this->assertDatabaseHas('products', ['title' => 'New title']);
     }
 
-    public function test_task_7() {
+    public function test_task_7()
+    {
         $products = Item::factory(4)->create();
         $this->assertDatabaseCount('products', 4);
 

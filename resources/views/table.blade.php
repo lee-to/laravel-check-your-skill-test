@@ -6,7 +6,7 @@
 <!-- TODO Blade Задание 6: В эту view с контроллера передается collection c users в переменной data -->
 <!-- Выполнить foreach loop в одну строку -->
 <!-- Используйте view shared/user.blade.php для item (переменная user во item view) -->
-<!-- Используйте view shared/empty.blade.php для состояния когда нет элементов в колекции -->
+<!-- Используйте view shared/empty.blade.php для состояния когда нет элементов в коллекции -->
 @each('shared.user', $data, 'user', 'shared.empty')
 
 <!-- TODO Blade Задание 7: Здесь сделайте классический foreach loop -->
