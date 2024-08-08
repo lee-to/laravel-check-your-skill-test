@@ -22,8 +22,7 @@ class EloquentController extends Controller
     public function task3()
     {
         // TODO Eloquent Задание 3: Добавить в модель Item scope для фильтрации активных продуктов (scopeActive())
-        // Одна строка кода
-        // вместо []
+        // Одна строка кода вместо []
         $products = [];
 
         return view('eloquent.task2', [
@@ -34,8 +33,7 @@ class EloquentController extends Controller
     public function task4($id)
     {
         // TODO Eloquent Задание 4: Найти Item по id и передать во view либо отдать 404 страницу
-        // Одна строка кода
-        // вместо []
+        // Одна строка кода вместо []
         $product = [];
 
         return view('eloquent.task4', [
@@ -62,7 +60,7 @@ class EloquentController extends Controller
 
     public function task7(Request $request)
     {
-        // TODO Eloquent Задание 7: В запросе будет параметр products который будет содержать массив с id
+        // TODO Eloquent Задание 7: В запросе будет параметр products, который будет содержать массив с id
         // [1,2,3,4 ...] выполнить массовое удаление записей модели Item с учетом id в $request
 
         return redirect('/');
