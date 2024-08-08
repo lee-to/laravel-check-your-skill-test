@@ -30,7 +30,7 @@ class EloquentController extends Controller
         ]);
     }
 
-    public function task4($id)
+    public function task4(int $id)
     {
         // TODO Eloquent Задание 4: Найти Item по id и передать во view либо отдать 404 страницу
         // Одна строка кода вместо []
@@ -49,7 +49,7 @@ class EloquentController extends Controller
         return redirect('/');
     }
 
-    public function task6($id, Request $request)
+    public function task6(int $id, Request $request)
     {
         $product = Item::findOrFail($id);
         // TODO Eloquent Задание 6: В запросе будет все необходимое для обновления записи
