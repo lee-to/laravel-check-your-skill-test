@@ -102,8 +102,8 @@ class RouteTest extends TestCase
     public function test_tasks_8_12()
     {
         $response = $this->get('/dashboard/admin');
+        // dd($response->assertView());
         $response->assertViewIs('welcome');
-
         $response = $this->post('/dashboard/admin/post');
         $response->assertViewIs('welcome');
         $response->assertStatus(200);
