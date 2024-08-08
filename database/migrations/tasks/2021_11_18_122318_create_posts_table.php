@@ -14,7 +14,6 @@ class CreatePostsTable extends Migration
     public function up()
     {
         //TODO Migrations Задание 1: Создать таблицу categories с 2 полями id и title (не забыть про timestamps)
-        //
 
         Schema::create('posts', function (Blueprint $table) {
             $table->id();

@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Route;
 //TODO Route Задание 1: По GET урлу /hello отобразить view - /resources/views/hello.blade (без контроллера)
 // Одна строка кода
 
+
 //TODO Route Задание 2: По GET урлу / обратиться к IndexController, метод index
 // Одна строка кода
+
 
 //TODO Route Задание 3: По GET урлу /page/contact отобразить view - /resources/views/pages/contact.blade
 // с наименованием роута - contact
@@ -23,14 +25,12 @@ use Illuminate\Support\Facades\Route;
 // Одна строка кода
 
 
-
 //TODO Route Задание 6: Выполнить редирект с урла /bad на урл /good
 // Одна строка кода
 
 
 //TODO Route Задание 7: Добавить роут на ресурс контроллер - UserCrudController с урлом - /users_crud
 // Одна строка кода
-
 
 
 //TODO Route Задание 8: Организовать группу роутов (Route::group()) объединенных префиксом - dashboard
@@ -46,7 +46,5 @@ use Illuminate\Support\Facades\Route;
 
     // Задачи внутри группы роутов security
     //TODO Задание 12: Добавить роут GET /admin/auth -> Admin/IndexController -> auth
-
-
 
 require __DIR__ . '/default.php';
