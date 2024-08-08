@@ -26,7 +26,7 @@ class EloquentController extends Controller
         // вместо []
         $products = [];
 
-        return view('eloquent.task2', [
+        return view('eloquent.task3', [
             'products' => $products
         ]);
     }
