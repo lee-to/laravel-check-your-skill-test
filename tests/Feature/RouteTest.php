@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class RouteTest extends TestCase
@@ -144,7 +145,7 @@ class RouteTest extends TestCase
         return [
             'name' => 'Name ' . random_int(1, 1000),
             'email' => uniqid() . '@example.com',
-            'password' => '123'
+            'password' => Hash::make('123'),
         ];
     }
 }
