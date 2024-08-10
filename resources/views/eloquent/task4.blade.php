@@ -1,1 +1,3 @@
-{{ $product->title }}
+@isset($product->title)
+    {{ $product->title }}
+@endisset

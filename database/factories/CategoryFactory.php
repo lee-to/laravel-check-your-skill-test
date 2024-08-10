@@ -9,12 +9,12 @@ class CategoryFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'title' => $this->faker->words(2, true)
+            'title' => fake()->words(2, true)
         ];
     }
 }

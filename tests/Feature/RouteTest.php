@@ -4,34 +4,33 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class RouteTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_task_1()
+    public function test_task_1(): void
     {
         $response = $this->get('/hello');
         $response->assertViewIs('hello');
     }
 
-    public function test_task_2()
+    public function test_task_2(): void
     {
         $response = $this->get('/');
         $response->assertViewIs('welcome');
         $response->assertViewHas('title', 'Welcome');
     }
 
-    public function test_task_3()
+    public function test_task_3(): void
     {
         $response = $this->get(route('contact'));
         $response->assertViewIs('pages.contact');
     }
 
-    public function test_task_4()
+    public function test_task_4(): void
     {
         $user = User::factory()->create();
 
@@ -41,7 +40,7 @@ class RouteTest extends TestCase
         $response->assertViewIs('users.show');
     }
 
-    public function test_task_5()
+    public function test_task_5(): void
     {
         $user = User::factory()->create();
 
@@ -51,20 +50,20 @@ class RouteTest extends TestCase
         $response->assertViewIs('users.show');
     }
 
-    public function test_tasks_4_5_notfound()
+    public function test_tasks_4_5_notfound(): void
     {
         $response = $this->get('/user/test');
         $response->assertNotFound();
     }
 
-    public function test_task_6()
+    public function test_task_6(): void
     {
         $response = $this->get('/bad');
 
         $response->assertRedirect('/good');
     }
 
-    public function test_task_7()
+    public function test_task_7(): void
     {
         $user = User::factory()->create();
 
@@ -99,7 +98,7 @@ class RouteTest extends TestCase
         $response->assertRedirect('/users_crud');
     }
 
-    public function test_tasks_8_12()
+    public function test_tasks_8_12(): void
     {
         $response = $this->get('/dashboard/admin');
         $response->assertViewIs('welcome');
@@ -107,7 +106,6 @@ class RouteTest extends TestCase
         $response = $this->post('/dashboard/admin/post');
         $response->assertViewIs('welcome');
         $response->assertStatus(200);
-
 
         $response = $this->get('/security/admin/auth');
         $response->assertRedirect('login');
@@ -118,7 +116,7 @@ class RouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_task_13()
+    public function test_task_13(): void
     {
         $userAuth = User::factory()->create();
 
@@ -147,7 +145,7 @@ class RouteTest extends TestCase
         return [
             'name' => 'Name ' . random_int(1, 1000),
             'email' => uniqid() . '@example.com',
-            'password' => '123'
+            'password' => Hash::make('123'),
         ];
     }
 }

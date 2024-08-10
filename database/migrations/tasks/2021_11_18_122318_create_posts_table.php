@@ -4,14 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         //TODO Migrations Задание 1: Создать таблицу categories с 2 полями id и title (не забыть про timestamps)
 
@@ -42,11 +40,9 @@ class CreatePostsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         // TODO Migrations Задание 11: Удалить таблицы categories, articles, article_category если такие существуют
     }
-}
+};

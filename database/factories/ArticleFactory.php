@@ -9,15 +9,15 @@ class ArticleFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'name' => $this->faker->words(2, true),
-            'description' => $this->faker->text,
-            'active' => $this->faker->boolean,
-            'main' => $this->faker->boolean
+            'name' => fake()->words(2, true),
+            'description' => fake()->text,
+            'active' => fake()->boolean,
+            'main' => fake()->boolean
         ];
     }
 }

@@ -4,16 +4,14 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class BladeTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_task_1()
+    public function test_task_1(): void
     {
         $response = $this->get('/');
 
@@ -22,7 +20,7 @@ class BladeTest extends TestCase
         $response->assertViewHas('users');
     }
 
-    public function test_task_2()
+    public function test_task_2(): void
     {
         $response = $this->get('/table');
 
@@ -30,7 +28,7 @@ class BladeTest extends TestCase
         $response->assertSee('Layout');
     }
 
-    public function test_task_3()
+    public function test_task_3(): void
     {
         $response = $this->get('/table');
 
@@ -38,7 +36,7 @@ class BladeTest extends TestCase
         $response->assertSee('Menu Item 1');
     }
 
-    public function test_task_4()
+    public function test_task_4(): void
     {
         $user = User::factory()->create();
 
@@ -51,7 +49,7 @@ class BladeTest extends TestCase
         $response->assertSee($user->id);
     }
 
-    public function test_task_5()
+    public function test_task_5(): void
     {
         $aliases = Blade::getClassComponentAliases();
 
@@ -63,7 +61,7 @@ class BladeTest extends TestCase
         $response->assertSee(now()->format('Y-m-d'));
     }
 
-    public function test_task_6_7()
+    public function test_task_6_7(): void
     {
         $response = $this->get('/table');
         $response->assertDontSee(`class="bg-red-500"`);

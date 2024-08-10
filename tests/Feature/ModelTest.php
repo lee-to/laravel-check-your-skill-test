@@ -10,7 +10,7 @@ class ModelTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_task_1()
+    public function test_task_1(): void
     {
         $item = ['title' => 'Test'];
 
@@ -19,7 +19,7 @@ class ModelTest extends TestCase
         $this->assertDatabaseHas('products', $item);
     }
 
-    public function test_task_2()
+    public function test_task_2(): void
     {
         $item1 = Item::factory()->create(['active' => true, 'created_at' => now()->subMinutes(5)]);
         $item2 = Item::factory()->create(['active' => true, 'created_at' => now()->subMinutes(4)]);
@@ -37,7 +37,7 @@ class ModelTest extends TestCase
         $response->assertSee('3.' . $item2->title);
     }
 
-    public function test_task_3()
+    public function test_task_3(): void
     {
         $item1 = Item::factory()->create(['active' => true]);
         $item2 = Item::factory()->create(['active' => false]);
@@ -48,7 +48,7 @@ class ModelTest extends TestCase
         $response->assertDontSee($item2->title);
     }
 
-    public function test_task_4()
+    public function test_task_4(): void
     {
         $response = $this->get('/eloquent/task4/1');
         $response->assertStatus(404);
@@ -59,14 +59,14 @@ class ModelTest extends TestCase
         $response->assertViewHas('product', $item);
     }
 
-    public function test_task_5()
+    public function test_task_5(): void
     {
         $response = $this->post('/eloquent/task5', ['title' => 'Test']);
         $response->assertRedirect();
         $this->assertDatabaseHas('products', ['title' => 'Test']);
     }
 
-    public function test_task_6()
+    public function test_task_6(): void
     {
         $item = new Item();
         $item->title = 'Old title';
@@ -81,7 +81,7 @@ class ModelTest extends TestCase
         $this->assertDatabaseHas('products', ['title' => 'New title']);
     }
 
-    public function test_task_7()
+    public function test_task_7(): void
     {
         $products = Item::factory(4)->create();
         $this->assertDatabaseCount('products', 4);
